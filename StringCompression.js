@@ -1,13 +1,13 @@
-const stringCompression=(str)=>{
-    let result = [];
-    let arrLeng = str.split("");
-    for (let i = 0; i < arrLeng.length; i++) {
-      if (!result.includes(arrLeng[i])) {
-        let leng = arrLeng.filter((arr) => arr == arrLeng[i]).length;
-        result.push(arrLeng[i]);
-        result.push(leng);
-      }
-    }
-    return result.join('');
+const stringCompression=(iterable)=>{
+  let arr=[]
+let count=0
+ for (let i=0; i<iterable.length;i++){
+   if (iterable[i]!=iterable[i+1]){
+     count++
+     arr.push(iterable[i])
+     arr.push(count)
+   }
+ }
+  return arr.join('')
 }
-console.log(stringCompression("AAAABBBCCDAA"))
+console.log(uniqueInOrder('AAAABbbbBBCCDAABBB'))
